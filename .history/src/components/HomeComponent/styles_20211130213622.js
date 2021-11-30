@@ -1,0 +1,22 @@
+import { StyleSheet } from "react-native";
+import React from "react";
+import colors from "../../assets/theme/colors";
+
+export default StyleSheet.create({
+  itemContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 10,
+    alignItems: "center",
+  },
+  item: {
+    borderRadius: 10,
+    backgroundColor: "#fd79a8",
+
+  },
+  name: {
+    fontSize: 16,
+  },
+  location: {},
+  time: {},
+});
