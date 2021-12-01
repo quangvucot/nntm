@@ -37,7 +37,7 @@ const LoginComponent = ({
             <Message
               onDismiss={() => { }}
               danger
-              message="invalid credentials"
+              message="Invalid credentials"
             />
           )}
           {error?.error && <Message danger onDismiss message={error.error} />}

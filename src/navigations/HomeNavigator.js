@@ -10,12 +10,11 @@ const HomeNavigator = () => {
   return (
     <HomeStack.Navigator
       initialRouteName={HOME}
-      screenOptions={{ headerTitleAlign: "center" }}
+      screenOptions={{ headerTitleAlign: "center", headerShown: false }}
     >
       <HomeStack.Screen
         name={HOME}
         component={Home}
-        options={{}}
       ></HomeStack.Screen>
       <HomeStack.Screen name={SETTING} component={Setting}></HomeStack.Screen>
     </HomeStack.Navigator>

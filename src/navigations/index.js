@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import {} from "react-native";
+import { } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerNavigator from "./DrawerNavigator";
 import AuthNavigator from "./AuthNavigator";
@@ -18,20 +18,20 @@ const AppNavContainer = () => {
     try {
       const user = await AsyncStorage.getItem("user");
       const uuid = await AsyncStorage.getItem("uuid");
-      if (user || uuid) {
+      console.log("uuid", uuid);
+      console.log("user", user);
+      if (user && uuid) {
         setAuthLoaded(true);
         setIsAuthenticated(true);
       } else {
         setAuthLoaded(true);
         setIsAuthenticated(false);
       }
-    } catch (err) {}
+    } catch (err) { }
   };
   useEffect(() => {
     getUser();
   }, [isLoggedIn]);
-  console.log("isLoggedIn:>>", isLoggedIn);
-  console.log("isAuthenticated:>>", isAuthenticated);
   return (
     <>
       {authLoaded ? (

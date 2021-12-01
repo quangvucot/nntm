@@ -13,11 +13,11 @@ const DrawerNavigator = () => {
   const { authDispatch } = useContext(GlobalContext);
   return (
     <Drawer.Navigator
-      screenOptions={{ headerShown: false }}
       drawerType="slide"
       drawerContent={({ navigation }) => getDrawerContent(navigation, authDispatch)}
     >
       <Drawer.Screen
+
         name={HOME_NAVIGATOR}
         component={HomeNavigator}
       ></Drawer.Screen>

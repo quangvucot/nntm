@@ -4,18 +4,18 @@ import {
   GET_FARMS_SUCCESS,
 } from "../../../constants/actionTypes";
 import axios from "../../../helpers/axiosInterceptor";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-export default () => (dataUuid) => (dispatch) => {
+export default () => (uuid) => (dispatch) => {
   dispatch({
     type: GET_FARMS_LOADING,
   });
   axios
-    .get(`/farm/${dataUuid.dataUuid}/`)
+    .get("/farm/9840d528-4f58-11ec-934f-5e261a6c48c5/")
     .then((res) => {
       dispatch({
         type: GET_FARMS_SUCCESS,
         payload: res.data,
       });
+      console.log("uuid", `/farm/${uuid.uuid._W.slice(1, -1)}`);
     })
     .catch((err) => {
       dispatch({

@@ -14,12 +14,20 @@ export default ({ password, username: username }) =>
             })
             .then(res => {
                 console.log('res.data', res.data);
-                AsyncStorage.setItem('user', JSON.stringify(res.data));
-                AsyncStorage.setItem('uuid', JSON.stringify(res.data.uuid));
-                dispatch({
-                    type: LOGIN_SUCCESS,
-                    payload: res.data,
-                });
+                if (JSON.stringify(res.data.success) == 1) {
+                    AsyncStorage.setItem('user', JSON.stringify(res.data));
+                    AsyncStorage.setItem('uuid', JSON.stringify(res.data.uuid));
+                    dispatch({
+                        type: LOGIN_SUCCESS,
+                        payload: res.data,
+                    });
+                } else if (JSON.stringify(res.data.success) == 0) {
+                    dispatch({
+                        type: LOGIN_FAIL,
+                        payload: { error: 'Tài khoản hoặc mật khẩu không chính xác' },
+                    });
+                }
+
             })
             .catch(err => {
                 console.log('errocx', err);

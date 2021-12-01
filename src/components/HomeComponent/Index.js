@@ -8,7 +8,6 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
-import style from "../../navigations/SlideMenu/style";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import Message from "../Common/Message";
@@ -19,7 +18,7 @@ const BG =
 const ListEmptyComponent = () => {
   return (
     <View style={{ paddingVertical: 100, paddingHorizontal: 100 }}>
-      <Message info message="No contacts to show" />
+      <Message info message="Không có thông tin vườn" />
     </View>
   );
 };

@@ -6,14 +6,17 @@ import getFarm from "../../context/actions/farm/getFarm";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const Home = () => {
   // const [modalVisible, setModalVisible] = useState(false);
+  const [dataUuid, setDataUuid] = useState({});
 
-  // const getUuid = async () => {
-  //   const uuid = AsyncStorage.getItem("uuid");
-  //   console.log("uuisdd", uuid);
-  // };
-  const uuid = AsyncStorage.getItem("uuid");
-
-  console.log("uuisdd", uuid);
+  const getData = async () => {
+    const user = await AsyncStorage.getItem("user");
+    if (user !== null) {
+      const value = JSON.parse(user).uuid;
+      setDataUuid(value);
+    } else {
+      console.log("Nothing", "Nothing")
+    }
+  }
 
   const {
     farmDispatch,
@@ -23,8 +26,9 @@ const Home = () => {
   } = useContext(GlobalContext);
 
   useEffect(() => {
-    getFarm()({ uuid })(farmDispatch);
-  }, []);
+    getData();
+    getFarm()({ dataUuid })(farmDispatch);
+  }, [dataUuid]);
 
   return (
     <HomeComponent

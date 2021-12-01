@@ -7,7 +7,7 @@ import { LOGIN, REGISTER } from "../constants/routeName";
 const AuthNavigator = () => {
   const AuthStack = createStackNavigator();
   return (
-    <AuthStack.Navigator >
+    <AuthStack.Navigator screenOptions={{ headerShown: false }} >
       <AuthStack.Screen name={LOGIN} component={SignIn} />
       <AuthStack.Screen name={REGISTER} component={Register} />
     </AuthStack.Navigator>

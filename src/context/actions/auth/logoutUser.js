@@ -2,7 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LOGOUT_USER } from '../../../constants/actionTypes';
 
 export default () => dispatch => {
-  AsyncStorage.removeItem('user');
-  console.log('dispatch', typeof dispatch);
+  AsyncStorage.removeItem("user");
+  AsyncStorage.removeItem("uuid");
   dispatch({ type: LOGOUT_USER });
+
 };
