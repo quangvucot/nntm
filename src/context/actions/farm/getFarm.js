@@ -4,7 +4,6 @@ import {
   GET_FARMS_SUCCESS,
 } from "../../../constants/actionTypes";
 import axios from "../../../helpers/axiosInterceptor";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 export default () => (dataUuid) => (dispatch) => {
   dispatch({
     type: GET_FARMS_LOADING,

@@ -32,9 +32,6 @@ const Home = () => {
 
   return (
     <HomeComponent
-      // modalVisible={modalVisible}
-      // setModalVisible={setModalVisible}
-
       data={data.data}
     />
   );

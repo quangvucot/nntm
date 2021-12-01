@@ -7,14 +7,13 @@ import {
   StatusBar,
   Image,
   StyleSheet,
+  Alert,
 } from "react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import Message from "../Common/Message";
 import colors from "../../assets/theme/colors";
-import backgoundImage from "../../assets/theme/images/backgound_farm.jpg";
-const BG =
-  "https://www.wallpapertip.com/wmimgs/165-1651644_green-farm-background.jpg";
+import { FARM_DETAIL, SETTING } from "../../constants/routeName";
 const ListEmptyComponent = () => {
   return (
     <View style={{ paddingVertical: 100, paddingHorizontal: 100 }}>
@@ -22,34 +21,30 @@ const ListEmptyComponent = () => {
     </View>
   );
 };
-const Item = ({ area, farmName, location, timeStart }) => (
-  <TouchableOpacity style={styles.itemContainer}>
-    <View style={styles.item}>
-      <Text style={styles.name}>Tên: {farmName}</Text>
-      <Text style={styles.location}>Địa Điểm: {location}</Text>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={styles.time}>Bắt đầu: {timeStart}</Text>
-        <Text style={styles.time}>Số Ngày: {timeStart}</Text>
-      </View>
-    </View>
-  </TouchableOpacity>
-);
 
 const HomeComponent = ({ data, loading, setModalVisible }) => {
   const { navigate } = useNavigation();
+  
   const renderItem = ({ item }) => {
     return (
-      <Item
-        area={item.area}
-        farmName={item.farmName}
-        location={item.location}
-        timeStart={item.timeStart}
-      />
+      <TouchableOpacity style={styles.itemContainer} onPress={() => {
+        navigate(FARM_DETAIL, { item });
+      }} >
+        <View style={styles.item}>
+          <Text style={styles.name}>Tên: {item.farmName}</Text>
+          <Text style={styles.location}>Địa Điểm: {item.location}</Text>
+          <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+            <Text style={styles.time}>Bắt đầu: {item.timeStart}</Text>
+            <Text style={styles.time}>Số Ngày: {item.timeStart}</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+
     );
   };
   return (
     <View style={{ paddingVertical: 20 }}>
-      <Image source={{ uri: BG }} style={StyleSheet.absoluteFillObject} />
+      <Image source={require('../../assets/theme/images/green-farm-background.jpg')} style={StyleSheet.absoluteFillObject} />
       <TouchableOpacity style={styles.addFarm}>
         <Text style={styles.textFarm}>Thêm Vườn</Text>
       </TouchableOpacity>

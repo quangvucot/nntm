@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "nntmProjectReactNative",
-    "slug": "nntmProjectReactNative",
+    "name": "Do An Tot Nghiep - Nong Nghiep Thong Minh",
+    "slug": "nntmproject",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "App Nong Nghiep Thong Minh",
+    "githubUrl": "https://github.com/vudqph/nntm.git"
   }
 }

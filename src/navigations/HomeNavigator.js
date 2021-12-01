@@ -2,8 +2,10 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import Setting from "../screens/Setting";
-import { HOME, HOME_NAVIGATOR, SENSOR, SETTING } from "../constants/routeName";
+import FarmDetail from "../screens/FarmDetails"
+import { DEVICE, FARM_DETAIL, HOME, HOME_NAVIGATOR, SENSOR, SETTING } from "../constants/routeName";
 import { Text } from "react-native";
+import Device from "../screens/Device";
 
 const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
@@ -12,11 +14,10 @@ const HomeNavigator = () => {
       initialRouteName={HOME}
       screenOptions={{ headerTitleAlign: "center", headerShown: false }}
     >
-      <HomeStack.Screen
-        name={HOME}
-        component={Home}
-      ></HomeStack.Screen>
+      <HomeStack.Screen name={HOME} component={Home}></HomeStack.Screen>
       <HomeStack.Screen name={SETTING} component={Setting}></HomeStack.Screen>
+      <HomeStack.Screen name={FARM_DETAIL} component={FarmDetail}></HomeStack.Screen>
+      <HomeStack.Screen name={DEVICE} component={Device}></HomeStack.Screen>
     </HomeStack.Navigator>
   );
 };
